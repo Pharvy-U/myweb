@@ -1,0 +1,82 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--	<meta charset="utf-8">-->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--	<title>Pharvy Control Panel</title>-->
+
+<!--	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+
+{% extends "portfolio/base.html" %}
+{% block content %}
+{% include 'portfolio/navbar2.html' %}
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<div id="journal-blog" class="paddsections">
+	<div class="container">
+		<div class="row justify-content">
+			<div class="section-title text-center"><h2>You can change certain parameters from here</h2></div>
+<!--			<div class="col-md-4 text-right"><h5>Hello, {{request.user}}<a class="btn" href="{% url 'logout' %}">logout</a></h5></div>-->
+		</div>
+	</div>
+	<div class="container align-items-center justify-content-between">
+		<div class="row">
+			<div class="col-md-3"><h5>Add and Modify Projects</h5></div>
+            <div class="col-md-6"><a class="btn" href="{% url 'create-project' %}">Add Project</a></div>
+		</div>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Project</th>
+					<th>Description</th>
+					<th>Link</th>
+					<th>Category</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</tr>
+				{% for project in projects %}
+					<tr>
+						<td>{{project.title}}</td>
+						<td>{{project.description|truncatechars:80}}</td>
+						<td>{{project.link}}</td>
+						<td>{{project.category}}</td>
+						<td><a class="btn btn-info btn-outline-primary" href="{% url 'update-project' project.id %}">Update</a></td>
+						<td><a class="btn btn-danger" href="{% url 'delete-project' project.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+			<hr>
+		</div>
+        <br>
+        <div class="row">
+			<div class="col-md-7"><h5>Create and Modify Blogs</h5></div>
+			<div class="col-md-5"><a class="btn btn-block" href="{% url 'create-blog' %}">New Blog</a></div>
+		</div>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Blog</th>
+					<th>Summary</th>
+					<th>Date</th>
+					<th>Update</th>
+					<th>Delete</th>
+				</tr>
+				{% for blog in blogs %}
+					<tr>
+						<td>{{blog.headline}}</td>
+						<td>{{blog.sub_headline}}</td>
+						<td>{{blog.date_created}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update-blog' blog.id %}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete-blog' blog.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+			<hr>
+		</div>
+    </div>
+</div>
+{% endblock %}
+
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,90 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+{% include 'portfolio/navbar2.html' %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{project.title|upper}}</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li>Portfolio Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                {% for image in slide_show %}
+
+                <div class="swiper-slide">
+                  <img src="{{image.image.url}}" alt="">
+                </div>
+
+                {% empty %}
+
+                <div class="swiper-slide">
+                  <img src="{% static 'img/portfolio/portfolio-details-1.jpg' %}" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="{% static 'img/portfolio/portfolio-details-2.jpg' %}" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="{% static 'img/portfolio/portfolio-details-3.jpg' %}" alt="">
+                </div>
+
+                {% endfor %}
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: {{project.category}}</li>
+                <li><strong>Client</strong>: {{project.client}}</li>
+                <li><strong>Status</strong>: {{project.status}}</li>
+                <li><strong>Project date</strong>: {{project.date_created|date:"F d, Y"}}</li>
+                <li><strong>Project URL</strong>: <a class="btn-info" href="{{project.link}}" target="_blank">GO TO PROJECT</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-9">
+          <p>
+            {{project.description|linebreaks}}
+          </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

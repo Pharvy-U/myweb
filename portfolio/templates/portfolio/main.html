@@ -1,0 +1,14 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% include 'portfolio/navbar.html' %}
+    {% include 'portfolio/meet_me.html' %}
+    <main id="main">
+        {% include 'portfolio/about.html' %}
+        {% include 'portfolio/projects.html' %}
+        {% include 'portfolio/blog_preview.html' %}
+        {% include 'portfolio/contact.html' %}
+    </main>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+
+<!-- ======= Portfolio Section ======= -->
+    <div id="portfolio" class="paddsection">
+
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>My Portfolio</h2>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-cv">Vision</li>
+              <li data-filter=".filter-nlp">NLP</li>
+              <li data-filter=".filter-analysis">Analysis</li>
+              <li data-filter=".filter-other">Others</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          {% for project in projects %}
+            {% if project.category == "Computer Vision" %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-cv">
+                <img src="{{project.thumbnail.url}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>{{project.title}}</h4>
+                  <p>{{project.description|truncatechars:150}}</p>
+                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            {% elif project.category == "NLP" %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-nlp">
+                <img src="{{project.thumbnail.url}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>{{project.title}}</h4>
+                  <p>{{project.description|truncatechars:150}}</p>
+                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            {% elif project.category == "Analysis" %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-analysis">
+                <img src="{{project.thumbnail.url}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>{{project.title}}</h4>
+                  <p>{{project.description|truncatechars:150}}</p>
+                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            {% else %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-other">
+                <img src="{{project.thumbnail.url}}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>{{project.title}}</h4>
+                  <p>{{project.description|truncatechars:150}}</p>
+                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            {% endif %}
+          {% empty %}
+            <h3>Come back at a later time...</h3>
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div><!-- End Portfolio Section -->

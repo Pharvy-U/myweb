@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Project</title>
+</head>
+<body>
+<p>{{prompt}}</p>
+
+<form action="{% url 'delete-project' project.id %}" method="POST">
+	{% csrf_token %}
+
+	<a href="{% url 'control' %}">Cancel</a>
+	<input type="submit" value="Delete">
+</form>
+
+</body>
+</html>

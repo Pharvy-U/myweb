@@ -1,0 +1,24 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="paddsection">
+	<div class="container">
+		<div class="section-title text-center">
+			<h2>Add New Blog or Edit Existing Blog</h2>
+		</div>
+	</div>
+	<div class="container">
+		<div class="card card-body">
+		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form.media}}
+			{{form|crispy}}
+			<a href="{% url 'control' %}">Cancel</a>
+			<input type="submit" name="submit">
+		</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
