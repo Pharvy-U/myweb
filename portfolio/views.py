@@ -84,8 +84,7 @@ def delete_project(request, id):
 def create_blog(request):
     form = BlogForm()
     if request.method == 'POST':
-        blog = Blog(content=request.POST['desc'])
-        form = BlogForm(request.POST, request.FILES, instance=blog)
+        form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('control')

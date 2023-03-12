@@ -26,7 +26,7 @@
 
                 <div class="journal-txt">
 
-                  <h4><a href="blog-single.html">{{blog.headline}}</a></h4>
+                  <h4><a href="{% url 'get-blog' blog.id %}">{{blog.headline}}</a></h4>
                   <p class="separator">{{blog.sub_headline}}</p>
 
                 </div>
