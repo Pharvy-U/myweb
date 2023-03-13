@@ -97,7 +97,6 @@ def update_blog(request, id):
     blog = Blog.objects.get(id=id)
     form = BlogForm(instance=blog)
     if request.method == 'POST':
-        # blog = Blog(content=request.POST['desc'])
         form = BlogForm(request.POST, request.FILES, instance=blog)
         if form.is_valid():
             form.save()
