@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myweb:1.0
+    ports:
+      - 8000:8001
+    env_file:
+      - .env
+    environment:
+      - PORT=8001
