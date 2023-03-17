@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  app:
+    depends_on:
+      - postgres_db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myweb:1.0
+    ports:
+      - 8000:8001
+    env_file:
+      - ./.env
+    environment:
+      - PORT=8001
+    command: sh -c "chmod +x /app/migrate.sh && sh /app/migrate.sh && sh /app/entrypoint.sh"
+
+  postgres_db:
+    image: postgres
+    restart: always
+    command: -p 5445
+    env_file:
+      - ./.env
+    expose:
+      - 5445
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
