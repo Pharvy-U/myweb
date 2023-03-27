@@ -7,6 +7,7 @@ urlpatterns = [
     path('blog/<str:id>', views.blog_single, name='get-blog'),
     path('project/<str:id>', views.project_single, name='get-project'),
     path('mail-me/', views.sendMail, name='mail'),
+    path('#contact/', views.home, name='after-mail'),
 
     # CRUD
     path('new-project', views.create_project, name='create-project'),
@@ -17,6 +18,7 @@ urlpatterns = [
     path('delete-blog/<str:id>', views.delete_blog, name='delete-blog'),
 
     # Authentication
+    path('login/', views.login_page, name="login"),
     path('control/', views.control_panel, name='control'),
     path('logout/', views.logout_user, name="logout"),
     # blog single

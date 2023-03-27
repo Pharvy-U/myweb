@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
+from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django.contrib import messages
 import os
 
+from .decorators import authenticated_user
 from .models import Blog, Project, ProjectImage
 from .forms import ContactForm, ProjectForm, BlogForm
 
@@ -131,9 +132,7 @@ def sendMail(request):
     email.send()
 
     messages.success(request, "Thank you for reaching out, I'll respond as soon as possible")
-    # return redirect('home')
-    # return render(request, 'portfolio/main.html')
-    return HttpResponse("Thank you")
+    return redirect('/#contact')
 
 
 def control_panel(request):
@@ -144,6 +143,24 @@ def control_panel(request):
     return render(request, 'portfolio/control.html', context=context)
 
 
+@authenticated_user
+def login_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, "You are not an authorised personnel")
+
+    content = {}
+    return render(request, 'portfolio/login.html', context=content)
+
+
 def logout_user(request):
-    pass
+    logout(request)
+    return redirect('home')
 

@@ -4,9 +4,9 @@
 <header id="header" class="fixed-top header-inner-pages">
   <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'blog' %}" class="logo"><img src="{% static '/img/logo.png' %}" alt="" class="img-fluid"></a>
+<!--      <a href="{% url 'blog' %}" class="logo"><img src="{% static '/img/logo.png' %}" alt="" class="img-fluid"></a>-->
       <!-- Uncomment below if you prefer to use an text logo -->
-      <!-- <h1 class="logo"><a href="index.html">Folio</a></h1> -->
+       <h1 class="logo"><a href="{% url 'blog' %}">Pharvy</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -22,6 +22,6 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a href="{% url 'blog' %}" class="btn">To Portfolio</a>
+      <a href="{% url 'home' %}" class="btn">To Portfolio</a>
   </div>
 </header><!-- End Header -->

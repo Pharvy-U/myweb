@@ -784,6 +784,16 @@ p {
   min-height: 160px;
 }
 
+.successful {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
 /*.php-email-form .error-message {
   display: none;
   color: #fff;
@@ -795,15 +805,7 @@ p {
 }
 .php-email-form .error-message br + br {
   margin-top: 25px;*/
-}
-.php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
+
 }
 .php-email-form .loading {
   display: none;
