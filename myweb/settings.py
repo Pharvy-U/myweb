@@ -29,9 +29,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = str(os.environ.get('DEBUG')) == '1'
 
 ALLOWED_HOSTS = []
-ENV_ALLOWED_HOSTS = json.loads(os.environ.get('ENV_ALLOWED_HOSTS'))
+ENV_ALLOWED_HOSTS = os.environ.get('ENV_ALLOWED_HOSTS')
 if ENV_ALLOWED_HOSTS:
-    ALLOWED_HOSTS = ENV_ALLOWED_HOSTS
+    ALLOWED_HOSTS = json.loads(ENV_ALLOWED_HOSTS)
 
 
 # Application definition
@@ -100,7 +100,6 @@ DB_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
 DB_HOST = os.environ.get('POSTGRES_HOST')
 DB_PORT = os.environ.get('POSTGRES_PORT')
 
-# DB_READY = str(os.environ.get('POSTGRES_READY')) == '1'
 DB_IS_AVAIL = all([DB_NAME, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT])
 
 if DB_IS_AVAIL:
