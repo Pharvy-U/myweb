@@ -24,7 +24,7 @@ env:
 
 jobs:
   test_django:
-    uses: pharvy-u/myweb/.github/workflows/test-django.yaml
+    uses: pharvy-u/myweb/.github/workflows/test-django.yaml@master
 
   build:
 
