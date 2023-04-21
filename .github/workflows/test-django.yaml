@@ -1,13 +1,9 @@
-name: Test App
+name: Test Django App
 
 on:
   workflow_call:
   workflow_dispatch:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
