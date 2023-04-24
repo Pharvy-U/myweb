@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'ckeditor',
     'ckeditor_uploader',
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -180,3 +181,5 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     }
 }
+
+from .cdn.conf import * #noqa
