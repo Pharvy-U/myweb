@@ -2,6 +2,7 @@ bootstrap-rte
 Folio
 ToDo.txt
 CI-CD_pipeline.txt
+staticfiles
 venv
 .idea
 __pycache__
