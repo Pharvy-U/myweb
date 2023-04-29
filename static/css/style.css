@@ -392,9 +392,17 @@ p {
 # Hero
 --------------------------------------------------------------*/
 #hero {
-  background: url("../img/home-bg.jpg") repeat scroll right center/cover;
+  background: url("../img/home-bg.jpg");
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   width: 100%;
+}
+
+@media screen and (max-width:800px) {
+  #hero {
+    background-image: url("../img/home-bg-small.jpg");
+  }
 }
 
 #hero .hero-content {
@@ -404,6 +412,12 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+@media screen and (max-width:800px) {
+  #hero .hero-content {
+    height: 160vh;
+  }
 }
 
 .hero-content h1 {
@@ -804,9 +818,9 @@ p {
   font-weight: 600;
 }
 .php-email-form .error-message br + br {
-  margin-top: 25px;*/
+  margin-top: 25px;
 
-}
+}*/
 .php-email-form .loading {
   display: none;
   background: #fff;
