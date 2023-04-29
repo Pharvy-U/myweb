@@ -2,6 +2,7 @@ bootstrap-rte
 Folio
 ToDo.txt
 venv
+staticfiles
 .idea
 __pycache__
 .DS_Store

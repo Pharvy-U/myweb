@@ -160,12 +160,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ukasoanyafavour6@gmail.com'
-EMAIL_HOST_PASSWORD = 'nsbfkdkeuvzxfuht'
+EMAIL_HOST_USER = 'ukasoanyaf@gmail.com'
+EMAIL_HOST_PASSWORD = 'rgdkfhqcvayvhong' #'nsbfkdkeuvzxfuht'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
