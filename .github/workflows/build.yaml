@@ -32,7 +32,7 @@ jobs:
       working-directory: .
       run: |
         docker build -f Dockerfile \
-        -t registry.digitalocean.com/pharvy/web:latest .
+        -t registry.digitalocean.com/pharvy/myweb:latest .
       
     - name: Push image
       run: docker push registry.digitalocean.com/pharvy/myweb --all-tags
