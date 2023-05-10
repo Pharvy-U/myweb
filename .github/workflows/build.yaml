@@ -1,0 +1,38 @@
+name: Build Image & Push To DO Registry
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  test_django:
+    user: Pharvy-U/myweb/.github/workflows/test-django.yaml@master
+
+  docker_build:
+    runs-on: ubuntu-latest
+    needs: [test_django]
+    env:
+      DJANGO_SECRET_KEY: get-one
+
+    steps:
+    - name: Ckeckout code
+      uses: actions/checkout@v3
+    - name: install doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DO_API_ACCESS_TOKEN }}
+    - name: Login to DO container registry with short-lived creds
+      run: doctl registry login --expiry-seconds 1200
+    - name: Build container image
+      working-directory: .
+      run: |
+        docker build -f Dockerfile \
+        -t registry.digitalocean.com/pharvy/web:latest \
+#        -t registry.digitalocean.com/pharvy/web:${GITHUB_SHA::7} \
+        .
+      name: Push image
+      run: docker push registry.digitalocean.com/pharvy/web --all-tags
