@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_django:
-    user: Pharvy-U/myweb/.github/workflows/test-django.yaml@master
+    uses: Pharvy-U/myweb/.github/workflows/test-django.yaml@master
 
   docker_build:
     runs-on: ubuntu-latest
