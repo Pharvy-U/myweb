@@ -4,6 +4,8 @@ staticfiles
 ToDo.txt
 CI-CD_pipeline.txt
 venv
+staticfiles
+CI-CD_pipeline.txt
 .idea
 __pycache__
 .DS_Store
