@@ -33,5 +33,5 @@ jobs:
         docker build -f Dockerfile \
         -t registry.digitalocean.com/pharvy/web:latest \
         .
-      name: Push image
+    - name: Push image
       run: docker push registry.digitalocean.com/pharvy/web --all-tags
