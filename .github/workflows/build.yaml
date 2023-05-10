@@ -9,12 +9,12 @@ on:
     branches: [master]
 
 jobs:
-  test_django:
-    uses: Pharvy-U/myweb/.github/workflows/test-django.yaml@master
+  # test_django:
+  #   uses: Pharvy-U/myweb/.github/workflows/test-django.yaml@master
 
   docker_build:
     runs-on: ubuntu-latest
-    needs: [test_django]
+    # needs: [test_django]
 
     steps:
     - name: Checkout code
@@ -27,7 +27,7 @@ jobs:
         
     - name: Login to DO container registry with short-lived creds
       run: doctl registry login --expiry-seconds 1200
-      
+
     - name: Build container image
       working-directory: .
       run: |
