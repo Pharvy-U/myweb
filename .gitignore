@@ -3,12 +3,14 @@ Folio
 staticfiles
 ToDo.txt
 CI-CD_pipeline.txt
+staticfiles
 venv
 staticfiles
 CI-CD_pipeline.txt
 .idea
 __pycache__
 .DS_Store
+db.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
