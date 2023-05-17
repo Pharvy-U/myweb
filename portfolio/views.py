@@ -72,7 +72,7 @@ def delete_project(request, id):
     project = Project.objects.get(id=id)
     if request.method == 'POST':
         project.delete()
-        os.remove(project.image.path)
+        os.remove(project.thumbnail.path)
         for image_slide in project.projectimage_set.all():
             os.remove(image_slide.path)
         return redirect('control')
