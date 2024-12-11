@@ -20,3 +20,5 @@ dotenv.read_dotenv(BASE_DIR / '.env')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myweb.settings')
 
 application = get_wsgi_application()
+
+app = application
