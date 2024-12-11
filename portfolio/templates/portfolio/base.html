@@ -56,5 +56,17 @@
   <!-- Template Main JS File -->
   <script src="{% static '/js/main.js' %}"></script>
 
+  <style>
+    .swiper-slide {
+      height: 400px; /* Set the height of the slide container */
+    }
+    .swiper-slide img {
+      height: 100%; /* Make the image's height match the container's height */
+      width: auto;  /* Keep the aspect ratio by adjusting width */
+      object-fit: cover; /* Ensure the image covers the container */
+      display: block; /* Avoid extra spacing below the image */
+    }
+  </style>
+
 </body>
 </html>

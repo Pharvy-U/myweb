@@ -10,11 +10,13 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          {% if not request.path == "/blog/" %}
+          <li><a class="nav-link scrollto active" href="#home">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link  scrollto" href="#journal">Blog</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% endif %}
           {% if request.user.is_authenticated %}
           <li><a class="nav-link scrollto" href="{% url 'control' %}">Control</a></li>
           <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
