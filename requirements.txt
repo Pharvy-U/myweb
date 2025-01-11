@@ -1,5 +1,5 @@
 crispy-bootstrap4==2022.1
-Django==4.1.4
+Django==4.2.7
 django-ckeditor==6.5.1
 django-clearcache==1.2.1
 django-crispy-forms==2.0
