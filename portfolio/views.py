@@ -113,9 +113,9 @@ def delete_blog(request, id):
 
 
 def sendMail(request):
-    form = ContactForm(request.POST)
-    if form.is_valid():
-        form.save()
+    # form = ContactForm(request.POST)
+    # if form.is_valid():
+    #     form.save()
 
     template = render_to_string('portfolio/email_template.html', {
                                 'name': request.POST['name'],
