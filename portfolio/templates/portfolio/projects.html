@@ -27,10 +27,12 @@
 
           {% for project in projects %}
             {% if project.category == "Computer Vision" %}
-              <div class="col-lg-4 col-md-6 portfolio-item filter-cv">
-                <img src="{{project.thumbnail.url}}" class="img-fluid" alt="">
+              <div class="col-lg-3 col-md-6 portfolio-item filter-cv">
+                <!-- <div class="img-container"> -->
+                <a href="{% url 'get-project' project.id %}"><img src="{{project.thumbnail.url}}" class="img-fluid" alt=""></a>
+                <!-- </div> -->
                 <div class="portfolio-info">
-                  <h4>{{project.title}}</h4>
+                  <h4><a href="{% url 'get-project' project.id %}">{{project.title}}</a></h4>
                   <p>{{project.description|truncatechars:150}}</p>
                   <!-- <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
                   <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->

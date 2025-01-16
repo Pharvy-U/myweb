@@ -635,6 +635,7 @@ p {
   font-size: 18px;
   color: #666;
   font-weight: 600;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 #portfolio .portfolio-item .portfolio-info p {
