@@ -48,7 +48,7 @@ class Project(models.Model):
 
     title = models.CharField(max_length=200)
     thumbnail = models.ImageField(max_length=200, null=True, upload_to="images/")
-    description = models.CharField(max_length=1000)
+    description = models.TextField()
     client = models.CharField(max_length=200, null=True, default="Personal")
     link = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)

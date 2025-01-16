@@ -13,8 +13,8 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>{{project.title|upper}}</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}#portfolio">Portfolio</a></li>
             <li>Portfolio Details</li>
           </ol>
         </div>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-9">
+          <div class="col-lg-9 justify-container">
           <p>
             {{project.description|linebreaks}}
           </p>
