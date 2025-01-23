@@ -4,6 +4,8 @@ from django.core.mail import EmailMessage
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from django.contrib import messages
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 import os
 
 from .decorators import authenticated_user
@@ -55,6 +57,8 @@ def create_project(request):
 def update_project(request, id):
     project = Project.objects.get(id=id)
     form = ProjectForm(instance=project)
+    current_slides = project.projectimage_set.all()
+    
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES, instance=project)
         slide_show = request.FILES.getlist('images')
@@ -64,22 +68,40 @@ def update_project(request, id):
                 ProjectImage.objects.create(project=project, image=image)
             return redirect('control')
 
-    context = {'form': form}
+    context = {'form': form, "current_slides": current_slides}
     return render(request, 'portfolio/create_project.html', context=context)
+
+
+def remove_image(request, id):
+    project_image = ProjectImage.objects.get(id=id)
+    os.remove(project_image.image.path)
+    project_image.delete()
+
+    # Get the referring page URL
+    referring_url = request.META.get('HTTP_REFERER', '/')
+
+    return redirect(referring_url)
 
 
 def delete_project(request, id):
     project = Project.objects.get(id=id)
     if request.method == 'POST':
+        for image_slide in project.projectimage_set.all():
+            os.remove(image_slide.image.path)
+
         project.delete()
         os.remove(project.thumbnail.path)
-        for image_slide in project.projectimage_set.all():
-            os.remove(image_slide.path)
         return redirect('control')
 
     detail = f"Are you sure you want to delete {project}"
     context = {'prompt': detail, 'project': project}
     return render(request, 'portfolio/delete_project.html', context=context)
+
+
+# @receiver(post_delete, sender=ProjectImage)
+# def delete_image_file(sender, instance, **kwargs):
+#     if instance.image and os.path.isfile(instance.image.path):
+#         os.remove(instance.image.path)
 
 
 def create_blog(request):

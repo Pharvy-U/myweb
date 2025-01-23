@@ -12,6 +12,7 @@ urlpatterns = [
     # CRUD
     path('new-project', views.create_project, name='create-project'),
     path('update-project/<str:id>', views.update_project, name='update-project'),
+    path('remove-image/<str:id>', views.remove_image, name='remove-image'),
     path('delete-project/<str:id>', views.delete_project, name='delete-project'),
     path('new-blog', views.create_blog, name='create-blog'),
     path('update-blog/<str:id>', views.update_blog, name='update-blog'),

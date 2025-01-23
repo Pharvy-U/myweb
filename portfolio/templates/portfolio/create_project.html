@@ -18,6 +18,20 @@
 		<div class="form-group">
 			<label>Image Slide Show</label>
 			<input name="images" type="file" multiple class="form-control-file">
+			<div class="card card-body">
+				<table class="table table-sm">
+			<tr>
+				<th>Current Slides</th>
+				<th>Remove</th>
+			</tr>
+			{% for slide in current_slides %}
+			<tr>
+				<td>{{slide.image.name}}</td>
+				<td><a class="btn btn-danger" href="{% url 'remove-image' slide.id %}">Remove</a></td>
+			</tr>
+			{% endfor %}
+			</table>
+			</div>
 		</div>
 		<a href="{% url 'control' %}">Cancel</a>
 		<input type="submit" name="submit">
