@@ -131,7 +131,14 @@ def update_blog(request, id):
 
 
 def delete_blog(request, id):
-    return render(request, 'portfolio/delete_blog.html')
+    blog = Blog.objects.get(id=id)
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('control')
+
+    detail = f"Are you sure you want to delete {blog}"
+    context = {'prompt': detail, 'blog': blog}
+    return render(request, 'portfolio/delete_blog.html', context=context)
 
 
 def sendMail(request):

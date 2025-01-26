@@ -5,6 +5,14 @@
     <title>Delete Blog</title>
 </head>
 <body>
-<p>Delete Blog</p>
+    <p>{{prompt}}</p>
+
+    <form action="{% url 'delete-blog' blog.id %}" method="POST">
+        {% csrf_token %}
+    
+        <a href="{% url 'control' %}">Cancel</a>
+        <input type="submit" value="Delete">
+    </form>
+    
 </body>
 </html>
