@@ -534,7 +534,7 @@ p {
 #about .about-descr .separator {
   max-width: 80%;
   margin-bottom: 0;
-  text-align: left;
+  text-align: justify;
 }
 
 /*--------------------------------------------------------------
