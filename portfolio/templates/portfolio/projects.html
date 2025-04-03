@@ -42,8 +42,8 @@
                 <div class="portfolio-info">
                   <h4><a href="{% url 'get-project' project.id %}">{{project.title}}</a></h4>
                   <p>{{project.description|truncatechars:150}}</p>
-                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <!-- <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                 </div>
               </div>
             {% elif project.category == "Analysis" %}
@@ -52,8 +52,8 @@
                 <div class="portfolio-info">
                   <h4><a href="{% url 'get-project' project.id %}">{{project.title}}</a></h4>
                   <p>{{project.description|truncatechars:150}}</p>
-                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <!-- <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                 </div>
               </div>
             {% else %}
@@ -62,8 +62,8 @@
                 <div class="portfolio-info">
                   <h4><a href="{% url 'get-project' project.id %}">{{project.title}}</a></h4>
                   <p>{{project.description|truncatechars:150}}</p>
-                  <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
-                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  <!-- <a href="{% static '/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{project.title}}"><i class="bx bx-plus"></i></a>
+                  <a href="{% url 'get-project' project.id %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                 </div>
               </div>
             {% endif %}
